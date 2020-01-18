@@ -46,7 +46,7 @@ class CrudsController extends Controller
         $image = $request->file('image');
 
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_puth('images'), $new_name);
+        $image->move(public_path('images'), $new_name);
         $form_data = array(
             'first_name'    =>  $request->first_name,
             'last_name'     =>  $request->last_name,
@@ -80,7 +80,8 @@ class CrudsController extends Controller
      */
     public function edit($id)
     {
-        //
+       $data = Crud::findOrFail($id);
+        return view('edit' compact('data')); 
     }
 
     /**
@@ -92,7 +93,35 @@ class CrudsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $image_name = $request->hidden_image;
+        $image = $request->file('image');
+        if($image != '')
+        {
+            $request->validate([
+                'first_name'    =>  'required',
+                'last_name'     =>  'required',
+                'image'         =>  'image|max:2048'
+            ]);
+            $image_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $image_name);
+        }
+        else
+        {
+            $request->validate([
+                'first_name'    =>  'required',
+                'last_name'     =>  'required'
+            ]);
+
+        }
+
+        $form_data = array(
+            'first_name' => request->first_name,
+            'last_name'  => request->last_name,
+            'image'      => $image_name
+    );
+
+        Crud::whereId($id)->update($form_data);
+        return redirect('crud')->with('success', 'Data is successfully updated');
     }
 
     /**
