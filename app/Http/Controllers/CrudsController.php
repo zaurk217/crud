@@ -68,7 +68,8 @@ class CrudsController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Crud::findOrFail($id);
+        return view('view', compact('data'));
     }
 
     /**

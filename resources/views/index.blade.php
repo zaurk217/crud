@@ -32,7 +32,7 @@
 				<td>{{ $row->email  }}</td>
 				<td>{{ $row->phone  }}</td>
 				<td>
-					
+					<a href="{{ route('crud.show', $row->id) }}" class="btn btn-primary">Show</a>
 
 
 				</td>
