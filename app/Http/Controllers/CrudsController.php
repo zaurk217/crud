@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Crud;
 use Illuminate\Http\Request;
 
 class CrudsController extends Controller
@@ -15,7 +16,7 @@ class CrudsController extends Controller
     {
         $data = Crud::latest()->paginate(10);
         return view('index', compact('data'))
-                    ->with('i', (request()->input('page' 1) - 1) * 10);
+                    ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**
@@ -36,11 +37,11 @@ class CrudsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate[
-            'first_name' =>  'required'
-            'last_name'  =>  'required'
+        $request->validate([
+            'first_name' =>  'required',
+            'last_name'  =>  'required',
             'image'      =>  'required|image|max:2048'
-        ];
+        ]);
 
         $image = $request->file('image');
 
