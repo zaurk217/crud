@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 
 Route::resource('crud', 'CrudsController');
+
+Route::resource('crudcompanies', 'CrudsCompaniesController');

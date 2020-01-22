@@ -81,7 +81,7 @@ class CrudsController extends Controller
     public function edit($id)
     {
        $data = Crud::findOrFail($id);
-        return view('edit' compact('data')); 
+        return view('edit', compact('data')); 
     }
 
     /**
@@ -115,8 +115,8 @@ class CrudsController extends Controller
         }
 
         $form_data = array(
-            'first_name' => request->first_name,
-            'last_name'  => request->last_name,
+            'first_name' => $request->first_name,
+            'last_name'  => $request->last_name,
             'image'      => $image_name
     );
 

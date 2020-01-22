@@ -2,7 +2,7 @@
 
 @section('main')
 
-@if ($errors->any())
+@if($errors->any())
 
 	<div class="alert alert-danger">
 		<ul>
@@ -11,14 +11,14 @@
 			@endforeach
 		</ul>
 	</div>
-@andif
+@endif
 
 <div align="right">
 	<a href="{{ route('crud.index') }}" class="btn btn-default">Back</a>
 </div>
 
 
-<form method="post" action="{{ route(crud.store) }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('crud.store') }}" enctype="multipart/form-data">
 
 	@csrf
 	
