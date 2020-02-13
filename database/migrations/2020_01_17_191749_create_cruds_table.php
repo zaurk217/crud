@@ -18,11 +18,11 @@ class CreateCrudsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('company');
-            $table->string('company_id');
             $table->string('email');
             $table->string('phone');
             $table->string('image');
             $table->timestamps();
+
         });
 
     }

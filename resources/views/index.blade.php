@@ -25,17 +25,24 @@
 		</tr>
 		@foreach($data as $row)
 			<tr>
-				<td><img src="{{ URL::to('/') }}images/{{ $row->image }}" class="img-thumbnail with="75" /></td>
+				<td><img src="{{ URL::to('/') }}/images/{{ $row->image }}" class="img-thumbnail with="75" /></td>
 				<td>{{ $row->first_name  }}</td>
 				<td>{{ $row->last_name  }}</td>
 				<td>{{ $row->company  }}</td>
 				<td>{{ $row->email  }}</td>
 				<td>{{ $row->phone  }}</td>
 				<td>
-					<a href="{{ route('crud.show', $row->id) }}" class="btn btn-primary">Show</a>
-					<a href="{{ route('crud.edit', $row->id) }}" class="btn btn-warning">Edit</a>
 
+				<ul class="list-group">
+					<li class="list-group-item"><a href="{{ route('crud.show', $row->id) }}" class="btn btn-primary">Show</a></li>
+					<li class="list-group-item"><a href="{{ route('crud.edit', $row->id) }}" class="btn btn-warning">Edit</a></li>
+					<li class="list-group-item"><form action="{{ route('crud.destroy', $row->id) }}" method="post">
+						@csrf
+						@method('DELETE')
+						<button type="submit" class="btn btn-danger">Delete</button>
+					</form></li>
 				</td>
+				</ul>
 			</tr>
 		@endforeach		
 	</table>

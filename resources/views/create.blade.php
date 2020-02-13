@@ -22,46 +22,34 @@
 
 	@csrf
 	
-	<div class="form-group">
-		<label class="col-md-4 text-right">Enter First Name</label>
-		<div class="col-md-8">
+	<div class="form-group col-md-8">
+		<label for="exampleInputEmail1">Enter First Name</label>
 			<input type="text" name="first_name" class="form-control input-lg" />	
-		</div>
 	</div>
 	
-	<div class="form-group">
-		<label class="col-md-4 text-right">Enter Last Name</label>
-		<div class="col-md-8">
+	<div class="form-group col-md-8">
+		<label for="exampleInputEmail1">Enter Last Name</label>
 			<input type="text" name="last_name" class="form-control input-lg" />	
-		</div>
 	</div>
 	
-	<div class="form-group">
-		<label class="col-md-4 text-right">Enter Company Name</label>
-		<div class="col-md-8">
+	<div class="form-group col-md-8">
+		<label for="exampleInputEmail1">Enter Company Name</label>
 			<input type="text" name="company" class="form-control input-lg" />	
-		</div>
 	</div>
 
-	<div class="form-group">
-		<label class="col-md-4 text-right">Enter Email</label>
-		<div class="col-md-8">
+	<div class="form-group col-md-8">
+		<label for="exampleInputEmail1">Enter Email</label>
 			<input type="text" name="email" class="form-control input-lg" />	
-		</div>
 	</div>
 
-	<div class="form-group">
-		<label class="col-md-4 text-right">Enter Phone Number</label>
-		<div class="col-md-8">
-			<input type="nummber" name="phone" class="form-control input-lg" />	
-		</div>
+	<div class="form-group col-md-8">
+		<label for="exampleInputEmail1">Enter Phone Number</label>
+			<input type="number" name="phone" class="form-control input-lg" />	
 	</div>
 
-	<div class="form-group">
-		<label class="col-md-4 text-right">Select Profile Image</label>
-		<div class="col-md-8">
+	<div class="form-group col-md-8">
+		<label for="exampleFormControlFile1">Select Profile Image</label>
 			<input type="file" name="image" />	
-		</div>
 	</div>
 
 	<div class="form-group text-center">

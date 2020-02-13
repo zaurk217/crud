@@ -132,6 +132,8 @@ class CrudsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Crud::findOrFail($id);
+        $data->delete();
+        return redirect('crud')->with('success', 'Data is successfully deleted');
     }
 }
